@@ -39,15 +39,15 @@ exports.getOneProduct = async (req, res) => {
         const id = req.params.id;
         let product = await Product.findById(id);
         if (product) {
-            let data = [];
-            data.push(product);
-            res.status(200).json({'data': data, 'code': 'OK', 'message': 'Datos obtenidos con exito.'});
+            // let data = [];
+            // data.push(product);
+            res.status(200).json({'data': product, 'code': 'OK', 'message': 'Datos obtenidos con exito.'});
         } else {
             res.status(404).json({'code': 'FAIL_CONTENT', 'message': 'Datos no existen.'});
         }
     } catch (error) {
         console.log('Error:', error);
-        res.status(500).json({'code': 'FAIL_CONTENT', 'message': 'Error al intentar actualizar datos'});
+        res.status(500).json({'code': 'FAIL_CONTENT', 'message': 'Error al intentar obtener datos'});
     }
 };
 
@@ -58,16 +58,20 @@ exports.updateProduct = async (req, res) => {
         // Destructuring
         const { nombre, categoria, ubicacion, precio } = req.body;
         const id = req.params.id;
-        let product = await Product.findById(id);
+        // let product = await Product.findById(id);
+        let data_product = req.body;
+        data_product['updated_at'] = Date.now();
+        let product = await Product.findByIdAndUpdate(id, data_product, { new: true}); // new: true, retorna el doc actualizado. new: false, retorna el doc antes que se actualice
         if (product) {
-            let data = [];
-            product.nombre = nombre;
-            product.categoria = categoria;
-            product.ubicacion = ubicacion;
-            product.precio = precio;
-            product = await Product.findOneAndUpdate({ _id: id}, product, { new: true });
-            if (product) data.push(product);
-            res.status(200).json({'data': data, 'code': 'OK', 'message': 'Datos actualizados con exito.'});
+            // let data = [];
+            // product.nombre = nombre;
+            // product.categoria = categoria;
+            // product.ubicacion = ubicacion;
+            // product.precio = precio;
+            // product.update_at = Date.now();
+            // product = await Product.findOneAndUpdate({ _id: id}, product, { new: true }); // new: true, retorna el documento actualizado.
+            // if (product) data.push(product);
+            res.status(200).json({'data': product, 'code': 'OK', 'message': 'Datos actualizados con exito.'});
         } else {
             res.status(404).json({'code': 'FAIL_CONTENT', 'message': 'Datos no existen.'});
         }

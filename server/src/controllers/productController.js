@@ -56,7 +56,7 @@ exports.getOneProduct = async (req, res) => {
 exports.updateProduct = async (req, res) => {
     try {
         // Destructuring
-        const { nombre, categoria, ubicacion, precio } = req.body;
+        // const { nombre, categoria, ubicacion, precio } = req.body; // No es necesario si se envia toda la data
         const id = req.params.id;
         // let product = await Product.findById(id);
         let data_product = req.body;

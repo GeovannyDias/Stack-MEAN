@@ -17,6 +17,7 @@ $ npm install
 
 In the server project root create the file config.env copy/paste the database connection:
 
+DB_MONGO=your-database-connection/name_database
 DB_MONGO=mongodb+srv://user:<password>@cluster0.pebzw.mongodb.net/name_database
 
 ```

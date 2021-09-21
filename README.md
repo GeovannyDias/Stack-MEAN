@@ -2,6 +2,25 @@
 MongoDB, Express, Angular y Node.js
 
 
+## RUN PROYECT
+
+```
+Run the following commands:
+
+- Stack-MEAN\client
+
+$ npm install
+
+- Stack-MEAN\server
+
+$ npm install
+
+In the project root create the file config.env copy/paste the database connection:
+
+DB_MONGO=mongodb+srv://user:<password>@cluster0.pebzw.mongodb.net/name_database
+
+```
+
 ## Angular Project - Client
 
 ```
@@ -193,6 +212,17 @@ mongoose docs:
 https://mongoosejs.com/docs/migrating_to_6.html#no-more-deprecation-warning-options
 https://mongoosejs.com
 https://mongoosejs.com/docs/index.html
+
+```
+
+## ENVIRONMENT (.env)
+
+```
+Crear el fichero config.env y en una variable de entorno colocar la cadena de conexión a la base de datos:
+
+Ej: 
+
+DB_MONGO=mongodb+srv://user:<password>@cluster0.pebzw.mongodb.net/name_database
 
 ```
 
